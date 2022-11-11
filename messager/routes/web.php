@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\messager\IjinController;
+use App\Http\Controllers\print\messages;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('message_1', IjinController::class);
+
+Route::get('home', function(){
+    return view('home');
+})->name('home');
+Route::get('print_message1', [messages::class, 'print_ijin'])->name('message.1.print');
