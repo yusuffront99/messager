@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\messager\IjinController;
 use App\Http\Controllers\print\messages;
 use Illuminate\Support\Facades\Route;
@@ -19,9 +21,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('message_1', IjinController::class);
+Route::resource('message_ijin', IjinController::class);
 
-Route::get('home', function(){
-    return view('home');
-})->name('home');
+Route::resource('profile', AuthController::class);
+
+Route::get('home', [HomeController::class, 'home'])->name('home');
+Route::get('home/{nip}', [HomeController::class, 'get_ijin'])->name('get.ijin');
+Route::get('ijin', [HomeController::class, 'message_ijin'])->name('message.ijin');
 Route::get('print_message1', [messages::class, 'print_ijin'])->name('message.1.print');

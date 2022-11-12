@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\messager;
+namespace App\Http\Controllers;
 
+use App\Models\User;
 use Webpatser\Uuid\Uuid;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Ijin;
 
-class IjinController extends Controller
+
+class AuthController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +17,7 @@ class IjinController extends Controller
      */
     public function index()
     {
-        return view('messager.ijin');
+        //
     }
 
     /**
@@ -26,7 +27,7 @@ class IjinController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -38,27 +39,33 @@ class IjinController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'user_id' => 'required',
-            'nama_lengkap' => 'required',
-            'bagian' => 'required',
-            'hari' => 'required',
-            'tanggal' => 'required',
-            'keperluan' => 'required',
+            'nip', 
+            'nama_lengkap', 
+            'bagian', 
+            'ttd_image'
         ]);
 
-        $ijinData = [
+        $file = $request->file('ttd_image');
+		$fileName = time() . '.' . $file->getClientOriginalExtension();
+		$file->storeAs('public/ttd_images', $fileName);
+
+		// $profile = new User();
+
+        // $profile->id = Uuid::generate();
+        // $profile->nip = $request->get('nip');
+        // $profile->nama_lengkap = $request->get('nama_lengkap');
+        // $profile->bagian = $request->get('bagian');
+        // $profile->ttd_image = $request->get('ttd_image');
+
+        $profileData = [
             'id' => Uuid::generate(),
-            'user_id' => $request->user_id,
-            'nip' => $request->nip,
-            'nama_lengkap' => $request->nama_lengkap,
+            'nip' => Str::upper($request->nip), 
+            'nama_lengkap' => Str::upper($request->nama_lengkap), 
             'bagian' => $request->bagian, 
-            'hari' => $request->hari, 
-            'tanggal' => $request->tanggal, 
-            'keperluan' => $request->keperluan, 
-            'ttd_image' => $request->ttd_image, 
+            'ttd_image' => $fileName, 
         ];
 
-		Ijin::create($ijinData);
+		User::create($profileData);
 		return response()->json([
 			'success' => 200,
 		]);
@@ -72,7 +79,7 @@ class IjinController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
