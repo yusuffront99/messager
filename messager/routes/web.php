@@ -28,4 +28,4 @@ Route::resource('profile', AuthController::class);
 Route::get('home', [HomeController::class, 'home'])->name('home');
 Route::get('home/{nip}', [HomeController::class, 'get_ijin'])->name('get.ijin');
 Route::get('ijin', [HomeController::class, 'message_ijin'])->name('message.ijin');
-Route::get('print_message1', [messages::class, 'print_ijin'])->name('message.1.print');
+Route::get('print_message1/{id}', [messages::class, 'print_ijin'])->name('message.1.print');

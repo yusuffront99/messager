@@ -18,6 +18,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('nip');
             $table->string('nama_lengkap');
+            $table->string('jabatan');
             $table->string('bagian')->default('Operasi');
             $table->string('ttd_image');
             $table->rememberToken();

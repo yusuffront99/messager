@@ -27,7 +27,7 @@
 
 
     {{-- MODAL IJIN --}}
-    <div class="modal fade" id="ijinModal" tabindex="-1" aria-labelledby="ijinModal" aria-hidden="true">
+    {{-- <div class="modal fade" id="ijinModal" tabindex="-1" aria-labelledby="ijinModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
@@ -39,11 +39,12 @@
                 <form action="" id="form-ijin">
                     @csrf
                     <div class="form-group mb-2">
-                        <input type="hidden" id="ttd_image">
+                        <input type="hidden" name="user_id" id="user_id">
+                        <input type="hidden" name="ttd_image" id="ttd_image">
                         <select name="nip" id="nip">
                             <option value="">-- NIP --</option>
                             @foreach ($gets as $gt)
-                                <option value="{{$gt->nip}}">{{$gt->nip}}</option>
+                                <option value="{{$gt->nip}}">{{$gt->nip}} - {{$gt->nama_lengkap}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -53,7 +54,7 @@
                     </div>
                     <div class="form-group mb-2">
                         <label for="Bagian">Bagian</label>
-                        <input type="text" name="" id="bagian" class="form-control">
+                        <input type="text" name="bagian" id="bagian" class="form-control">
                     </div>
                     <div class="form-group mb-2">
                         <label for="hari">Pilih Hari</label>
@@ -85,27 +86,76 @@
             </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     {{-- MODAL IJIN --}}
 
     {{-- MODAL TAHUNAN --}}
-    {{-- <div class="modal fade" id="cutiTahunanModal" tabindex="-1" aria-labelledby="cutiTahunanModal" aria-hidden="true">
+    <div class="modal fade" id="cutiTahunanModal" tabindex="-1" aria-labelledby="cutiTahunanModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="cutiTahunanModal">Modal title</h1>
+                <h1 class="modal-title fs-5" id="cutiTahunanModal">Surat Cuti Tahunan</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <form action="#" id="form-cuti-tahunan">
+                    @csrf
+                    <div class="form-group mb-2">
+                        <input type="hidden" name="user_id" id="user_id">
+                        <input type="hidden" name="ttd_image" id="ttd_image">
+                        <select name="nip" id="nip">
+                            <option value="">-- NIP --</option>
+                            @foreach ($gets as $gt)
+                                <option value="{{$gt->nip}}">{{$gt->nip}} - {{$gt->nama_lengkap}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="nama_lengkap">Nama Lengkap</label>
+                        <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="jabatan">Jabatan</label>
+                        <input type="text" name="jabatan" id="jabatan" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="Bagian">Bagian</label>
+                        <input type="text" name="bagian" id="bagian" class="form-control">
+                    </div>
+                    <div class="form-group mb-2">
+                        <label for="hak_cuti">Dapat Cuti Per tanggal</label>
+                        <input type="date" id="hak_cuti" name="hak_cuti" class="form-control">
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="sudah">Cuti Sudah diambil</label>
+                                <input type="text" name="sudah" id="sudah" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="belum">Cuti Akan diambil</label>
+                                <input type="text" name="belum" id="belum" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label for="sisa">Sisa Cuti</label>
+                                <input type="text" name="sisa" id="sisa" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2" id="avatar">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
             </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     {{-- MODAL TAHUNAN --}}
 
     {{-- MODAL BESAR --}}
@@ -129,11 +179,11 @@
     {{-- MODAL BESAR --}}
 
     {{-- PROFILE --}}
-    {{-- <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModal" aria-hidden="true">
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="profileModal">Modal title</h1>
+                <h1 class="modal-title fs-5" id="profileModal">New Profile</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -147,6 +197,16 @@
                         <div class="form-group mb-2">
                             <label for="nama_lengkap">Nama Lengkap</label>
                             <input type="text" name="nama_lengkap" id="nama_lengkap" class="form-control" required>
+                        </div>
+                        <div class="form-group mb-2">
+                            <label for="jabatan">Pilih Jabatan</label>
+                            <select name="jabatan" id="jabatan" class="form-select">
+                                <option value="">-- Pilih jabatan --</option>
+                                <option value="JO Boiler">JO Boiler</option>
+                                <option value="JO Turbine">JO Turbine</option>
+                                <option value="JO Control Room">JO Control Room</option>
+                                <option value="Supervisor">Supervisor</option>
+                            </select>
                         </div>
                         <div class="form-group mb-2">
                             <label for="Bagian">Bagian</label>
@@ -167,7 +227,7 @@
                 </div>
             </div>
             </div>
-    </div> --}}
+    </div>
     {{-- PROFILE --}}
 @endsection 
 
@@ -188,10 +248,13 @@
                 data: {},
                 success:function(response){
                     if(response.success == true){
+                        $('#user_id').val(response.data.id);
+                        $('#nip').val(response.data.nip);
                         $('#nama_lengkap').val(response.data.nama_lengkap);
                         $('#bagian').val(response.data.bagian);
-                        $('#bagian').val(response.data.bagian);
+                        $('#jabatan').val(response.data.jabatan);
                         $('#ttd_image').val(response.data.ttd_image);
+                        console.log(response);
                     } else {
                         console.error('salah');
                     }
@@ -215,6 +278,7 @@
         //                 if(data.success){
         //                     $("#form-profile")[0].reset();
         //                     $("#profileModal").modal('hide');
+        //                     window.location = "{{route('home')}}";
         //                     alert('true');
         //                     // window.location = "{{route('profile.index')}}";
         //                 }else{
@@ -225,7 +289,34 @@
         //     });
 
         // FORM IJIN
-        $('#form-ijin').submit(function(e){
+        // $('#form-ijin').submit(function(e){
+        //     e.preventDefault();
+        //     let data = new FormData(this);
+
+        //         $.ajax({
+        //             url : "{{route('message_ijin.store')}}",
+        //             method : "post",
+        //             data: data,
+        //             dataType: 'JSON',
+        //             contentType: false,
+        //             cache: false,
+        //             processData: false,
+        //             success: function(data){
+        //                 if(data.success){
+        //                     $("#form-ijin")[0].reset();
+        //                     $("#ijinModal").modal('hide');
+        //                     window.location = '{{route("message_ijin.index")}}';
+        //                     // window.location = "{{route('profile.index')}}";
+        //                 }else{
+        //                     alert(false)
+        //                 }
+        //             }
+        //         });
+        // })
+        // FORM IJIN
+
+        // FORM CUTI TAHUNAN
+        $('#form-cuti-tahunan').submit(function(e){
             e.preventDefault();
             let data = new FormData(this);
 
@@ -239,17 +330,17 @@
                     processData: false,
                     success: function(data){
                         if(data.success){
-                            $("#form-ijin")[0].reset();
-                            $("#ijinModal").modal('hide');
-                            alert('true');
+                            $("#form-cuti-tahunan")[0].reset();
+                            $("#cutiTahunanModal").modal('hide');
+                            window.location = '{{route("message_ijin.index")}}';
                             // window.location = "{{route('profile.index')}}";
                         }else{
                             alert(false)
                         }
                     }
                 });
-        })
-        // FORM IJIN
+        });
+        // FORM CUTI TAHUNAN
     });
 </script>
 

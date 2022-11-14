@@ -96,7 +96,11 @@
         }
 
         .ttd-img {
-            padding: 30px;
+            padding: 10px;
+        }
+
+        .ttd-pemohon {
+            margin-bottom: 75px;
         }
     </style>
     {{-- styles --}}
@@ -125,17 +129,17 @@
 
             <ol class="content-list1">
                 <br>
-                <li>Nama <span id="list1-a">: Ahmad Suil</span></li>
-                <li>NIP <span id="list1-b">: 9988001DY</span></li>
-                <li>Bagian <span id="list1-c">: Operasi</span></li>
+                <li>Nama <span id="list1-a">: {{$data->users->nama_lengkap}}</span></li>
+                <li>NIP <span id="list1-b">: {{$data->users->nip}}</span></li>
+                <li>Bagian <span id="list1-c">: {{$data->users->bagian}}</span></li>
             </ol>
             <br>
 
             Mengajukan permohonan ijin untuk tidak masuk kerja pada :
             <ul class="content-list2">
-                <li>Hari <span id="list2-a">: sabtu</span></li>
-                <li>Tanggal <span id="list2-b">: sabtu</span></li>
-                <li>Keperluan <span id="list2-c">: sabtu</span></li>
+                <li>Hari <span id="list2-a">: {{$data->hari}}</span></li>
+                <li>Tanggal <span id="list2-b">: {{Carbon\carbon::createFromFormat('Y-m-d', $data->tanggal)->isoFormat('D MMMM Y')}}</span></li>
+                <li>Keperluan <span id="list2-c">: {{$data->keperluan}}</span></li>
             </ul>
             <br>
 
@@ -143,7 +147,7 @@
         </div>
         <br>
         <div class="tgl-text">
-            Asam asam, 08 November 2022
+            Asam asam, {{Carbon\carbon::now()->isoFormat('D MMMM Y')}}
         </div>
         <br>
 
@@ -154,7 +158,7 @@
                     <br>
                     <strong>MANBAGOP</strong>
                     <div class="ttd-img">
-                        
+                        <img src="<?php echo $ttd ?>" alt="" width="100px" height="60px">
                     </div>
                     <strong>ISKANDAR SETIYAWAN</strong>
 
@@ -162,11 +166,10 @@
                 <td width="50%">
                     Pemohon
                     <br>
-                    <div class="ttd-img">
+                    <div class="ttd-img ttd-pemohon">
                         
                     </div>
-                    <br>
-                    <strong>ABDULLAH</strong>
+                    <strong>{{$data->users->nama_lengkap}}</strong>
                 </td>
             </tr>
         </table>

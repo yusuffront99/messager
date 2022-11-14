@@ -41,6 +41,7 @@ class AuthController extends Controller
         $this->validate($request, [
             'nip', 
             'nama_lengkap', 
+            'jabatan', 
             'bagian', 
             'ttd_image'
         ]);
@@ -61,6 +62,7 @@ class AuthController extends Controller
             'id' => Uuid::generate(),
             'nip' => Str::upper($request->nip), 
             'nama_lengkap' => Str::upper($request->nama_lengkap), 
+            'jabatan' => $request->jabatan, 
             'bagian' => $request->bagian, 
             'ttd_image' => $fileName, 
         ];

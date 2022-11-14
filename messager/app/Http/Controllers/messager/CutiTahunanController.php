@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\messager;
 
-use Webpatser\Uuid\Uuid;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Ijin;
+use Illuminate\Http\Request;
 
-class IjinController extends Controller
+class CutiTahunanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,7 @@ class IjinController extends Controller
      */
     public function index()
     {
-        $data = Ijin::with('users')->get();
-        return view('messager.ijin', compact('data'));
+        //
     }
 
     /**
@@ -38,32 +35,7 @@ class IjinController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'user_id' => 'required',
-            'nip' => 'required',
-            'nama_lengkap' => 'required',
-            'bagian' => 'required',
-            'hari' => 'required',
-            'tanggal' => 'required',
-            'keperluan' => 'required',
-        ]);
-
-        $ijinData = [
-            'id' => Uuid::generate(),
-            'user_id' => $request->user_id,
-            'nip' => $request->nip,
-            'nama_lengkap' => $request->nama_lengkap,
-            'bagian' => $request->bagian, 
-            'hari' => $request->hari, 
-            'tanggal' => $request->tanggal, 
-            'keperluan' => $request->keperluan, 
-            'ttd_image' => $request->ttd_image, 
-        ];
-
-		Ijin::create($ijinData);
-		return response()->json([
-			'success' => 200,
-		]);
+        //
     }
 
     /**
@@ -74,7 +46,7 @@ class IjinController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
@@ -108,9 +80,6 @@ class IjinController extends Controller
      */
     public function destroy($id)
     {
-        $data = Ijin::with('users')->findOrFail($id);
-        $data->delete();
-
-        return redirect()->route('message_ijin.index');
+        //
     }
 }

@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('ijins', function (Blueprint $table) {
             $table->id();
+            $table->char('user_id');
+            $table->string('nip');
+            $table->string('nama_lengkap');
+            $table->string('bagian');
+            $table->string('hari');
+            $table->date('tanggal');
+            $table->string('keperluan');
+            $table->string('ttd_image');
             $table->timestamps();
         });
     }
