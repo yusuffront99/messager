@@ -37,39 +37,43 @@
     margin-top: 20%;
 }
 
-a.menu-button1, .menu-button2, .menu-button3 {
+button.menu-button1, .menu-button2, .menu-button3, .menu-button4 {
     padding: 45px 100px;
     color: white;
     text-decoration: none;
     letter-spacing: 3px;
     font-weight: bold;
+    border: none;
 }
 
-a.menu-button1 {
+button.menu-button1 {
     background: slateblue;
 }
-a.menu-button2 {
+button.menu-button2 {
     background: orange;
 }
-a.menu-button3 {
+button.menu-button3 {
     background: salmon;
 }
+button.menu-button4 {
+    background: rgb(5, 153, 91);
+}
 
-a.menu-button1:hover {
+button.menu-button1:hover {
     color: white;
     box-shadow: 0px 1px 3px rgb(145, 145, 145);
     cursor: pointer;
     transition: ease-in-out 0.25s;
     background: #4536a4;
 }
-a.menu-button2:hover {
+button.menu-button2:hover {
     color: white;
     box-shadow: 0px 1px 3px rgb(145, 145, 145);
     cursor: pointer;
     transition: ease-in-out 0.25s;
     background: #d68f0d;
 }
-a.menu-button3:hover {
+button.menu-button3:hover {
     color: white;
     box-shadow: 0px 1px 3px rgb(145, 145, 145);
     cursor: pointer;
@@ -77,7 +81,25 @@ a.menu-button3:hover {
     background: #df5342;
 }
 
-/* TABLE */
-tbody.tb-view {
-    background: pink;
+button.menu-button4:hover {
+    color: white;
+    box-shadow: 0px 1px 3px rgb(145, 145, 145);
+    cursor: pointer;
+    transition: ease-in-out 0.25s;
+    background: #0ca568;
 }
+
+ul li .bx-list1 {
+    padding: 10px;
+    background: blue;
+    width: 5%;
+}
+ul li .bx-list2 {
+    padding: 10px;
+    background: green;
+    width: 5%;
+}
+
+/* CUTI TAHUNAN */
+
+/* CUTI TAHUNAN */

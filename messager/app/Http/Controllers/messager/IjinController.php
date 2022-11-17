@@ -57,7 +57,7 @@ class IjinController extends Controller
             'hari' => $request->hari, 
             'tanggal' => $request->tanggal, 
             'keperluan' => $request->keperluan, 
-            'ttd_image' => $request->ttd_image, 
+            // 'ttd_image' => $request->ttd_image, 
         ];
 
 		Ijin::create($ijinData);

@@ -43,12 +43,12 @@ class AuthController extends Controller
             'nama_lengkap', 
             'jabatan', 
             'bagian', 
-            'ttd_image'
+            // 'ttd_image'
         ]);
 
-        $file = $request->file('ttd_image');
-		$fileName = time() . '.' . $file->getClientOriginalExtension();
-		$file->storeAs('public/ttd_images', $fileName);
+        // $file = $request->file('ttd_image');
+		// $fileName = time() . '.' . $file->getClientOriginalExtension();
+		// $file->storeAs('public/ttd_images', $fileName);
 
 		// $profile = new User();
 
@@ -64,7 +64,7 @@ class AuthController extends Controller
             'nama_lengkap' => Str::upper($request->nama_lengkap), 
             'jabatan' => $request->jabatan, 
             'bagian' => $request->bagian, 
-            'ttd_image' => $fileName, 
+            // 'ttd_image' => $fileName, 
         ];
 
 		User::create($profileData);

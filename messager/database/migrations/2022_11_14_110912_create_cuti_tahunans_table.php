@@ -13,15 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ijins', function (Blueprint $table) {
+        Schema::create('cuti_tahunans', function (Blueprint $table) {
             $table->id();
             $table->char('user_id');
             $table->string('nip');
             $table->string('nama_lengkap');
             $table->string('bagian');
-            $table->string('hari');
-            $table->date('tanggal');
-            $table->string('keperluan');
+            $table->date('hak_cuti');
+            $table->date('mulai_tgl');
+            $table->date('sampai_tgl');
+            $table->string('sudah');
+            $table->string('akan');
+            $table->string('sisa');
+            $table->string('no_hp');
+            $table->string('alamat');
             $table->timestamps();
         });
     }
@@ -33,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ijins');
+        Schema::dropIfExists('cuti_tahunans');
     }
 };

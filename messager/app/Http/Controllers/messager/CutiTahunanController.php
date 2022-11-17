@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\messager;
 
-use App\Http\Controllers\Controller;
+use Webpatser\Uuid\Uuid;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\CutiTahunan;
 
 class CutiTahunanController extends Controller
 {
@@ -14,7 +16,8 @@ class CutiTahunanController extends Controller
      */
     public function index()
     {
-        //
+        $data = CutiTahunan::with('users')->get();
+        return view('messager.cutiTahunan', compact('data'));
     }
 
     /**
@@ -35,7 +38,42 @@ class CutiTahunanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'user_id' => 'required',
+            'nip' => 'required',
+            'nama_lengkap' => 'required',
+            'bagian' => 'required',
+            'hak_cuti' => 'required',
+            'mulai_tgl' => 'required',
+            'sudah' => 'required',
+            'akan' => 'required',
+            'sisa' => 'required',
+            'no_hp' => 'required',
+            'alamat' => 'required',
+        ]);
+
+        $CutiTahunanData = [
+            'id' => Uuid::generate(),
+            'user_id' => $request->user_id,
+            'nip' => $request->nip,
+            'nama_lengkap' => $request->nama_lengkap,
+            'bagian' => $request->bagian, 
+            'hak_cuti' => $request->hak_cuti, 
+            'mulai_tgl' => $request->mulai_tgl, 
+            'sampai_tgl' => $request->sampai_tgl, 
+            'sudah' => $request->sudah, 
+            'akan' => $request->akan, 
+            'sisa' => $request->sisa, 
+            'no_hp' => $request->no_hp, 
+            'alamat' => $request->alamat, 
+        ];
+
+		CutiTahunan::create($CutiTahunanData);
+		return response()->json([
+			'success' => 200,
+		]);
+
+
     }
 
     /**
@@ -80,6 +118,9 @@ class CutiTahunanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = CutiTahunan::with('users')->findOrFail($id);
+        $data->delete();
+
+        return redirect()->route('message_cutiTahunan.index');
     }
 }
