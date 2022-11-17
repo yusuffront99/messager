@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('nip');
             $table->string('nama_lengkap');
             $table->string('bagian');
+            $table->string('grade');
             $table->date('hak_cuti');
             $table->date('mulai_tgl');
             $table->date('sampai_tgl');
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->string('sisa');
             $table->string('no_hp');
             $table->string('alamat');
+            $table->string('ttd_image');
             $table->timestamps();
         });
     }

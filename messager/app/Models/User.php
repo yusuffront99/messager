@@ -24,7 +24,8 @@ class User extends Authenticatable
         'nama_lengkap',
         'jabatan',
         'bagian',
-        // 'ttd_image',
+        'grade',
+        'ttd_image',
     ];
 
     /**

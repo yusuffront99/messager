@@ -100,7 +100,11 @@
         }
 
         .ttd-pemohon {
-            margin-bottom: 75px;
+            margin-bottom: 0px;
+        }
+
+        .text-pemohon {
+            margin-top: 15px;
         }
     </style>
     {{-- styles --}}
@@ -110,7 +114,7 @@
         <table>
             <tr>
                 <td class="header-logo">
-                    <img src="<?php echo $img ?>" width="60px" height="70px" alt="">
+                    <img src="<?php echo $img ?>" width="50px" height="50px" alt="">
                 </td>
                 <td class="header-text">
                     PT PLN (PERSERO) INDUK UNIT PEMBANGKITAN DAN PENYALURAN KALIMANTAN 
@@ -164,10 +168,11 @@
 
                 </td>
                 <td width="50%">
-                    Pemohon
-                    <br>
+                    <div class="text-pemohon">
+                        Pemohon
+                    </div>
                     <div class="ttd-img ttd-pemohon">
-                        
+                        <img src="<?php echo $ttd_image ?>" alt="" width="100px" height="60px">
                     </div>
                     <strong>{{$data->users->nama_lengkap}}</strong>
                 </td>

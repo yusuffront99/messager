@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $gets = User::get();
+        $gets = User::orderBy('nip', 'asc')->get();
         return view('home', compact('gets'));
     }
 

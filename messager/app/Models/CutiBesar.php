@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\User;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Ijin extends Model
+class CutiBesar extends Model
 {
     use HasFactory;
 
@@ -15,10 +14,16 @@ class Ijin extends Model
         'nip',
         'nama_lengkap',
         'bagian',
-        'hari',
-        'tanggal',
-        'keperluan',
-        'ttd_image'
+        'grade',
+        'hak_cuti',
+        'mulai_tgl',
+        'sampai_tgl',
+        'sudah',
+        'akan',
+        'sisa',
+        'no_hp',
+        'alamat',
+        'ttd_image',
     ];
 
     public function users()

@@ -15,6 +15,7 @@ class CutiTahunan extends Model
         'nip',
         'nama_lengkap',
         'bagian',
+        'grade',
         'hak_cuti',
         'mulai_tgl',
         'sampai_tgl',
@@ -23,6 +24,7 @@ class CutiTahunan extends Model
         'sisa',
         'no_hp',
         'alamat',
+        'ttd_image',
     ];
 
     public function users()

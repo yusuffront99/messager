@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\messager;
 
-use App\Models\User;
 use Webpatser\Uuid\Uuid;
-use Illuminate\Support\Str;
+use App\Models\CutiBesar;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-
-class AuthController extends Controller
+class CutiBesarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +16,8 @@ class AuthController extends Controller
      */
     public function index()
     {
-        //
+        $data = CutiBesar::with('users')->get();
+        return view('messager.cutiBesar', compact('data'));
     }
 
     /**
@@ -27,7 +27,7 @@ class AuthController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -39,42 +39,44 @@ class AuthController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nip', 
-            'nama_lengkap', 
-            'jabatan', 
-            'grade', 
-            'bagian', 
-            // 'ttd_image'
+            'user_id' => 'required',
+            'nip' => 'required',
+            'nama_lengkap' => 'required',
+            'bagian' => 'required',
+            'grade' => 'required',
+            'hak_cuti' => 'required',
+            'mulai_tgl' => 'required',
+            'sudah' => 'required',
+            'akan' => 'required',
+            'sisa' => 'required',
+            'no_hp' => 'required',
+            'alamat' => 'required',
+            'ttd_image' => 'required',
         ]);
 
-        $file = $request->file('ttd_image');
-		$fileName = time() . '.' . $file->getClientOriginalExtension();
-		$file->storeAs('public/ttd_images', $fileName);
-
-		// $profile = new User();
-
-        // $profile->id = Uuid::generate();
-        // $profile->nip = $request->get('nip');
-        // $profile->nama_lengkap = $request->get('nama_lengkap');
-        // $profile->jabatan = $request->get('jabatan');
-        // $profile->grade = $request->get('grade');
-        // $profile->bagian = $request->get('bagian');
-        // $profile->ttd_image = $request->get('ttd_image');
-
-        $profileData = [
+        $cutiBesar = [
             'id' => Uuid::generate(),
-            'nip' => Str::upper($request->nip), 
-            'nama_lengkap' => Str::upper($request->nama_lengkap), 
-            'jabatan' => $request->jabatan, 
-            'grade' => $request->grade, 
+            'user_id' => $request->user_id,
+            'nip' => $request->nip,
+            'nama_lengkap' => $request->nama_lengkap,
             'bagian' => $request->bagian, 
-            'ttd_image' => $fileName, 
+            'grade' => $request->grade, 
+            'hak_cuti' => $request->hak_cuti, 
+            'mulai_tgl' => $request->mulai_tgl, 
+            'sampai_tgl' => $request->sampai_tgl, 
+            'sudah' => $request->sudah, 
+            'akan' => $request->akan, 
+            'sisa' => $request->sisa, 
+            'no_hp' => $request->no_hp, 
+            'alamat' => $request->alamat, 
+            'ttd_image' => $request->ttd_image, 
         ];
 
-		User::create($profileData);
+		CutiBesar::create($cutiBesar);
 		return response()->json([
 			'success' => 200,
 		]);
+
     }
 
     /**
@@ -119,6 +121,9 @@ class AuthController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = CutiBesar::with('users')->findOrFail($id);
+        $data->delete();
+
+        return redirect()->route('message_cutiBesar.index');
     }
 }

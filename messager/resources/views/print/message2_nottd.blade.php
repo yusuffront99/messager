@@ -50,6 +50,10 @@
             font-size: 12px;
         }
 
+        .text-ct {
+            text-decoration: line-through;
+        }
+
         ul li {
             margin-bottom: 10px;
             list-style: none;
@@ -85,12 +89,16 @@
         }
 
         .nottd {
-            margin: 28px 0px;
+            margin: 20px 0px;
         }
 
         .ttd-pemohon {
             margin-top: 5%;
-            margin-bottom: 60px;
+            margin-bottom: 38px;
+        }
+
+        .text-pemohon {
+            margin-top: 5px;
         }
 
         .footer-text {
@@ -132,7 +140,7 @@
         <div class="text-title">
             SURAT PERMOHONAN
             <br>
-            PELAKSANAAN CUTI TAHUNAN /BESAR *)
+            PELAKSANAAN CUTI TAHUNAN / <span class="text-ct">BESAR</span>*)
         </div>
         <br>
 
@@ -143,14 +151,14 @@
             <ul>
                 <li>Nama<span class="list-nama">: {{$data->users->nama_lengkap}}</span></li>
                 <li>Nomor Induk <span class="list-nip">: {{$data->users->nip}}</span></li>
-                <li>Jabatan / Grade <span class="list-grade">: {{$data->users->jabatan}}</span></li>
+                <li>Jabatan / Grade <span class="list-grade">: {{$data->users->jabatan}} / {{$data->users->grade}}</span></li>
                 <li>Satuan Organisasi <span class="list-satuan">: {{$data->users->bagian}}</span></li>
             </ul>
             <br>
-            Hak cuti tahunan/besar *) jatuh pada tanggal {{Carbon\carbon::createFromFormat('Y-m-d', $data->hak_cuti)->isoFormat('D MMMM Y')}}
+            Hak cuti tahunan / <span class="text-ct">besar</span>*) jatuh pada tanggal {{Carbon\carbon::createFromFormat('Y-m-d', $data->hak_cuti)->isoFormat('D MMMM Y')}}
             <br>
             <br>
-            Mohon diizinkan melaksanakan cuti tahunan/besar *) 
+            Mohon diizinkan melaksanakan cuti tahunan / <span class="text-ct">BESAR</span>*) 
             
             @if ($data->akan == 1)
                 Pada tanggal <span class="text-important">{{Carbon\carbon::createFromFormat('Y-m-d', $data->mulai_tgl)->isoFormat('D MMMM Y')}}</span>
@@ -162,11 +170,11 @@
     
             <br>
             <br>
-            Untuk permohonan cuti tahunan/ besar diisi :
+            Untuk permohonan cuti tahunan / <span class="text-ct">besar</span>  diisi :
             <br>
-            Cuti tahunan/ besar yang telah diambil  nol( <span class="text-important">{{$data->sudah}}</span> ) hari <br>
-            Cuti tahunan/ besar yang akan diambil  satu ( <span class="text-important">{{$data->akan}}</span> ) hari <br>
-            Sisa cuti tahunan/ Besar tahun. 2022 adalah  sebelas ( <span class="text-important">{{$data->sisa}}</span>) hari 
+            Cuti tahunan / <span class="text-ct">besar</span>  yang telah diambil  nol( <span class="text-important">{{$data->sudah}}</span> ) hari <br>
+            Cuti tahunan / <span class="text-ct">besar</span>  yang akan diambil  satu ( <span class="text-important">{{$data->akan}}</span> ) hari <br>
+            Sisa cuti tahunan / <span class="text-ct">besar</span> tahun 2022 adalah  sebelas ( <span class="text-important">{{$data->sisa}}</span>) hari 
 
             <br><br>
             Alamat dan nomor telepon selama cuti : <br>
@@ -178,18 +186,27 @@
             <table id="tbl-2">
                 <tr>
                     <td>
-                        Mengetahui
+                        Menyetujui
                         <br>
-                        <strong>Manajer Bagian Operasi</strong>
-                        <div class="ttd-img nottd">
-                            
-                        </div>
-                        <strong>(ISKANDAR SETIYAWAN)</strong>
+                        @if ($data->users->jabatan != 'Supervisor Dasar')
+                            <strong>Manajer Bagian Operasi</strong>
+                            <div class="ttd-img">
+                                <img src="<?php echo $ttd ?>" alt="" width="100px" height="60px">
+                            </div>
+                            <strong>(ISKANDAR SETIYAWAN)</strong>
+                        @else
+                            <strong>Manajer UPK Asam asam</strong>
+                            <div class="ttd-img">
+                                <img src="<?php echo $ttd ?>" alt="" width="100px" height="60px">
+                            </div>
+                            <strong>(DANI ESA WINDIARTO)</strong>
+                        @endif
     
                     </td>
                     <td width="50%">
-                        Pemohon
-                        <br>
+                        <div class="text-pemohon">
+                            Pemohon
+                        </div>
                         <div class="ttd-img ttd-pemohon">
                             
                         </div>

@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('nip');
             $table->string('nama_lengkap');
             $table->string('jabatan');
+            $table->string('grade');
             $table->string('bagian')->default('Operasi');
-            // $table->string('ttd_image');
+            $table->string('ttd_image');
             $table->rememberToken();
             $table->timestamps();
         });

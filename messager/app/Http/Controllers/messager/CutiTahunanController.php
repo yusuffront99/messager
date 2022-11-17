@@ -43,6 +43,7 @@ class CutiTahunanController extends Controller
             'nip' => 'required',
             'nama_lengkap' => 'required',
             'bagian' => 'required',
+            'grade' => 'required',
             'hak_cuti' => 'required',
             'mulai_tgl' => 'required',
             'sudah' => 'required',
@@ -50,6 +51,7 @@ class CutiTahunanController extends Controller
             'sisa' => 'required',
             'no_hp' => 'required',
             'alamat' => 'required',
+            'ttd_image' => 'required',
         ]);
 
         $CutiTahunanData = [
@@ -58,6 +60,7 @@ class CutiTahunanController extends Controller
             'nip' => $request->nip,
             'nama_lengkap' => $request->nama_lengkap,
             'bagian' => $request->bagian, 
+            'grade' => $request->grade, 
             'hak_cuti' => $request->hak_cuti, 
             'mulai_tgl' => $request->mulai_tgl, 
             'sampai_tgl' => $request->sampai_tgl, 
@@ -66,6 +69,7 @@ class CutiTahunanController extends Controller
             'sisa' => $request->sisa, 
             'no_hp' => $request->no_hp, 
             'alamat' => $request->alamat, 
+            'ttd_image' => $request->ttd_image, 
         ];
 
 		CutiTahunan::create($CutiTahunanData);

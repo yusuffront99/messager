@@ -106,6 +106,10 @@
         .ttd-pemohon {
             margin-bottom: 75px;
         }
+
+        .text-pemohon {
+            margin-top: 1px;
+        }
     </style>
     {{-- styles --}}
 </head>
@@ -158,7 +162,7 @@
         <table id="tbl-2">
             <tr>
                 <td>
-                    Mengetahui
+                    Menyetujui
                     <br>
                     <strong>MANBAGOP</strong>
                     <div class="ttd-img nottd">
@@ -168,7 +172,9 @@
 
                 </td>
                 <td width="50%">
-                    Pemohon
+                    <div class="text-pemohon">
+                        Pemohon
+                    </div>
                     <br>
                     <div class="ttd-img ttd-pemohon">
                         

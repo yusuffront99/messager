@@ -50,7 +50,7 @@
             font-size: 12px;
         }
 
-        .text-ct {
+        .text-cb {
             text-decoration: line-through;
         }
 
@@ -86,15 +86,20 @@
 
         .ttd-img {
             padding: 10px;
+            margin: 22px;
         }
 
-        .text-pemohon {
-            margin-top: 15px;
+        .nottd {
+            margin: 20px 0px;
         }
 
         .ttd-pemohon {
-            /* margin-top: 5%; */
-            margin-bottom: 0px;
+            margin-top: 5%;
+            margin-bottom: 38px;
+        }
+
+        .text-pemohon {
+            margin-top: 5px;
         }
 
         .footer-text {
@@ -136,7 +141,7 @@
         <div class="text-title">
             SURAT PERMOHONAN
             <br>
-            PELAKSANAAN CUTI TAHUNAN / <span class="text-ct">BESAR</span>*)
+            PELAKSANAAN CUTI <span class="text-cb">TAHUNAN</span> / BESAR *)
         </div>
         <br>
 
@@ -151,10 +156,10 @@
                 <li>Satuan Organisasi <span class="list-satuan">: {{$data->users->bagian}}</span></li>
             </ul>
             <br>
-            Hak cuti tahunan / <span class="text-ct">besar</span>*) jatuh pada tanggal {{Carbon\carbon::createFromFormat('Y-m-d', $data->hak_cuti)->isoFormat('D MMMM Y')}}
+            Hak cuti <span class="text-cb">tahunan</span> / besar *) jatuh pada tanggal {{Carbon\carbon::createFromFormat('Y-m-d', $data->hak_cuti)->isoFormat('D MMMM Y')}}
             <br>
             <br>
-            Mohon diizinkan melaksanakan cuti tahunan / <span class="text-ct">BESAR</span>*) 
+            Mohon diizinkan melaksanakan cuti <span class="text-cb">tahunan</span> / BESAR *) 
             
             @if ($data->akan == 1)
                 Pada tanggal <span class="text-important">{{Carbon\carbon::createFromFormat('Y-m-d', $data->mulai_tgl)->isoFormat('D MMMM Y')}}</span>
@@ -166,11 +171,11 @@
     
             <br>
             <br>
-            Untuk permohonan cuti tahunan / <span class="text-ct">besar</span>  diisi :
+            Untuk permohonan cuti <span class="text-cb">tahunan</span> / besar   diisi :
             <br>
-            Cuti tahunan / <span class="text-ct">besar</span>  yang telah diambil  nol( <span class="text-important">{{$data->sudah}}</span> ) hari <br>
-            Cuti tahunan / <span class="text-ct">besar</span>  yang akan diambil  satu ( <span class="text-important">{{$data->akan}}</span> ) hari <br>
-            Sisa cuti tahunan / <span class="text-ct">besar</span> tahun 2022 adalah  sebelas ( <span class="text-important">{{$data->sisa}}</span>) hari 
+            Cuti <span class="text-cb">tahunan</span> / besar  yang telah diambil  nol( <span class="text-important">{{$data->sudah}}</span> ) hari <br>
+            Cuti <span class="text-cb">tahunan</span> / besar  yang akan diambil  satu ( <span class="text-important">{{$data->akan}}</span> ) hari <br>
+            Sisa cuti <span class="text-cb">tahunan</span> / besar  tahun 2022 adalah  sebelas ( <span class="text-important">{{$data->sisa}}</span>) hari 
 
             <br><br>
             Alamat dan nomor telepon selama cuti : <br>
@@ -187,24 +192,24 @@
                         @if ($data->users->jabatan != 'Supervisor Dasar')
                             <strong>Manajer Bagian Operasi</strong>
                             <div class="ttd-img">
-                                <img src="<?php echo $ttd ?>" alt="" width="100px" height="60px">
+                                
                             </div>
                             <strong>(ISKANDAR SETIYAWAN)</strong>
                         @else
                             <strong>Manajer UPK Asam asam</strong>
                             <div class="ttd-img">
-                                <img src="<?php echo $ttd ?>" alt="" width="100px" height="60px">
+                                
                             </div>
                             <strong>(DANI ESA WINDIARTO)</strong>
                         @endif
-        
+    
                     </td>
                     <td width="50%">
                         <div class="text-pemohon">
                             Pemohon
                         </div>
                         <div class="ttd-img ttd-pemohon">
-                            <img src="<?php echo $ttd_image ?>" alt="" width="60px" height="60px">
+                            
                         </div>
                         <strong>({{$data->users->nama_lengkap}})</strong>
                     </td>
@@ -217,7 +222,7 @@
             Pegawai Fungsional : diparaf oleh Spv & disetujui Asman <br>
             Pegawai Struktural : diparaf oleh Manbag & disetujui Manajer <br><br>
 
-            Dalam hal pelaksana cuti tahunan /  diijinkan maka : <br>
+            Dalam hal pelaksana cuti tahunan / besar diijinkan maka : <br>
             a.	Sebelum menjalankan cuti agar melaporkan pekerjaan yang menjadi tanggungjawabnya kepada <br> atasan langsung atau pejabat yang ditunjuk. <br>
             b.	Setelah menjalankan cuti, wajib melaporkan diri kepada atasan lansung dan bekerja kembali <br> sebagaimana biasa. <br>
             c.	Dalam hal setelah menjalankan cuti, Pegawai tidak melaporkan diri kepada atasan langsung dan <br> atau tidak bekerja kembali <br> sebagaimana biasa tanpa keterangan yang sah, dianggap mangkir dan diproses sesuai Peraturan <br> Disiplin Pegawai yang berlaku.

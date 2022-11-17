@@ -50,7 +50,7 @@
             font-size: 12px;
         }
 
-        .text-ct {
+        .text-cb {
             text-decoration: line-through;
         }
 
@@ -136,7 +136,7 @@
         <div class="text-title">
             SURAT PERMOHONAN
             <br>
-            PELAKSANAAN CUTI TAHUNAN / <span class="text-ct">BESAR</span>*)
+            PELAKSANAAN CUTI <span class="text-cb">TAHUNAN</span> / BESAR *)
         </div>
         <br>
 
@@ -151,10 +151,10 @@
                 <li>Satuan Organisasi <span class="list-satuan">: {{$data->users->bagian}}</span></li>
             </ul>
             <br>
-            Hak cuti tahunan / <span class="text-ct">besar</span>*) jatuh pada tanggal {{Carbon\carbon::createFromFormat('Y-m-d', $data->hak_cuti)->isoFormat('D MMMM Y')}}
+            Hak cuti <span class="text-cb">tahunan</span> / besar *) jatuh pada tanggal {{Carbon\carbon::createFromFormat('Y-m-d', $data->hak_cuti)->isoFormat('D MMMM Y')}}
             <br>
             <br>
-            Mohon diizinkan melaksanakan cuti tahunan / <span class="text-ct">BESAR</span>*) 
+            Mohon diizinkan melaksanakan cuti <span class="text-cb">tahunan</span> / BESAR *) 
             
             @if ($data->akan == 1)
                 Pada tanggal <span class="text-important">{{Carbon\carbon::createFromFormat('Y-m-d', $data->mulai_tgl)->isoFormat('D MMMM Y')}}</span>
@@ -166,11 +166,11 @@
     
             <br>
             <br>
-            Untuk permohonan cuti tahunan / <span class="text-ct">besar</span>  diisi :
+            Untuk permohonan cuti <span class="text-cb">tahunan</span> / besar   diisi :
             <br>
-            Cuti tahunan / <span class="text-ct">besar</span>  yang telah diambil  nol( <span class="text-important">{{$data->sudah}}</span> ) hari <br>
-            Cuti tahunan / <span class="text-ct">besar</span>  yang akan diambil  satu ( <span class="text-important">{{$data->akan}}</span> ) hari <br>
-            Sisa cuti tahunan / <span class="text-ct">besar</span> tahun 2022 adalah  sebelas ( <span class="text-important">{{$data->sisa}}</span>) hari 
+            Cuti <span class="text-cb">tahunan</span> / besar  yang telah diambil  nol( <span class="text-important">{{$data->sudah}}</span> ) hari <br>
+            Cuti <span class="text-cb">tahunan</span> / besar  yang akan diambil  satu ( <span class="text-important">{{$data->akan}}</span> ) hari <br>
+            Sisa cuti <span class="text-cb">tahunan</span> / besar  tahun 2022 adalah  sebelas ( <span class="text-important">{{$data->sisa}}</span>) hari 
 
             <br><br>
             Alamat dan nomor telepon selama cuti : <br>

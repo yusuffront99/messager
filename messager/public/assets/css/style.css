@@ -5,7 +5,8 @@
 /* ==== WELCOME */
 .box {
     position: absolute;
-    padding: 75px 60px;
+    height: 150px;
+    width: 150px;
     background: orange;
     top: 35%;
     right: 40%;
@@ -19,6 +20,8 @@
 .box a {
     text-decoration: none;
     color: white;
+    margin: 50px;
+    line-height: 9;
 }
 
 .box:hover {
@@ -26,7 +29,8 @@
     transition: ease-in-out 0.25s;
     cursor: pointer;
     transform-origin: 10% 20%;
-    padding: 80px 65px;
+    height: 145px;
+    width: 145px;
 }
 
 
@@ -34,7 +38,15 @@
 /* ===========HOME */
 
 .menu {
-    margin-top: 20%;
+    margin-top: 5%;
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+    text-align: center!important;
+    font-size: 45px;
+    margin: 75px 0px 5px 0px;
+    color: #578fe2;
 }
 
 button.menu-button1, .menu-button2, .menu-button3, .menu-button4 {
