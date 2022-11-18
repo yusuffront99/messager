@@ -3,7 +3,9 @@
 @section('content')
     <div class="container my-4">
         <h1>CEK SURAT CUTI BESAR</h1>
-        <br>
+        <div class="my-3">
+            <a href="{{route('home')}}" class="badge bg-primary"><i class="bi bi-arrow-left-circle"></i> To Home</a>
+        </div>
         <hr>
 
         <div class="my-2">
@@ -11,10 +13,13 @@
             <br>
             <ul>
                 <li class="text-primary">
-                    Surat Dengan Tanda tangan MANBAG <div class="bx-list1"></div>  
+                    Surat Auto Tanda Tangan <div class="bx-list1"></div>  
                 </li>
                 <li class="text-success">
-                    Surat Tanpa Tanda tangan MANBAG <div class="bx-list2"></div>  
+                    Surat Tanpa Tanda tangan <div class="bx-list2"></div>  
+                </li>
+                <li class="text-danger">
+                    Menghapus surat <div class="bx-list3"></div>  
                 </li>
             </ul>
         </div>

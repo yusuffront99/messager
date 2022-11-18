@@ -8,30 +8,30 @@
     </div>
 </div>
 <div class="menu">
-    <div class="row mx-auto">
+    <div class="row">
             <!-- Button trigger modal -->
-        <div class="col-lg-3 mb-3">
+        <div class="col-lg-3 col-md-3 mb-3">
             <a href="{{route('message_ijin.index')}}" class="btn btn-white text-primary"><i class="bi bi-eyeglasses"></i> Lihat Surat</a>
             <button type="button" class="menu-button1" data-bs-toggle="modal" data-bs-target="#ijinModal">
                 <i class="bi bi-envelope-check-fill"></i> Surat Ijin
             </button>
         </div>
 
-        <div class="col-lg-3 mb-3 ml-2">
+        <div class="col-lg-3 col-md-3 mb-3">
             <a href="{{route('message_cutiTahunan.index')}}" class="btn btn-white text-primary"><i class="bi bi-eyeglasses"></i> Lihat Surat</a>
             <button type="button" class="menu-button2" data-bs-toggle="modal" data-bs-target="#cutiTahunanModal">
-                <i class="bi bi-envelope-check-fill"></i> Cuti Tahunan
+                <i class="bi bi-envelope-check-fill"></i> Cuti Tahun
             </button>
         </div>
 
-        <div class="col-lg-3 mb-3">
+        <div class="col-lg-3 col-md-3 mb-3">
             <a href="{{route('message_cutiBesar.index')}}" class="btn btn-white text-primary"><i class="bi bi-eyeglasses"></i> Lihat Surat</a>
             <button type="button" class="menu-button3" data-bs-toggle="modal" data-bs-target="#cutiBesarModal">
                 <i class="bi bi-envelope-check-fill"></i> Cuti Besar
             </button>
         </div>
         
-        <div class="col-lg-3 mb-3">
+        <div class="col-lg-3 col-md-3 mb-3">
             <a href="" class="btn btn-white text-primary"><i class="bi bi-eyeglasses"></i> Lihat Surat</a>
             <button type="button" class="menu-button4" data-bs-toggle="modal" data-bs-target="#profileModal">
                 <i class="bi bi-person-add"></i> Buat Profile
@@ -42,6 +42,9 @@
 
 <div class="my-4 text-center">
     <strong class=""><a href="" class="text-secondary"><i class="bi bi-github"></i> Github</a></strong>
+    <br>
+    <br>
+    <strong class="text-center fs-bold fs-6 text-secondary">Version 1.2 - December 2022</strong>
 </div>
 @endsection
 
@@ -54,7 +57,7 @@
                     <h1 class="modal-title fs-5" id="profileModalLabel">Buat Profile</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body profile">
                     <form action="" id="profile">
                         @csrf
                         <div class="form-group mb-2">
@@ -92,7 +95,7 @@
                             </select>
                         </div>
                         <div class="my-2">
-                            <label for="ttd_image">Tanda Tangan</label>
+                            <label for="ttd_image">Tanda Tangan</label> <span class="info-ttd">* Pastikan Ukuran Maksimal foto Tanda tangan 500 kb</span>
                             <input type="file" id="ttd_image" name="ttd_image" class="form-control" required>
                         </div>
                         <div class="modal-footer">
@@ -114,7 +117,7 @@
                 <h1 class="modal-title fs-5" id="ijinModalLabel">Surat Ijin</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-                <div class="modal-body bg-primary text-white">
+                <div class="modal-body ijin text-white">
                     <form action="" id="ijin">
                         @csrf
                         <div class="form-group mb-2">
@@ -175,7 +178,7 @@
                 <h1 class="modal-title fs-5" id="cutiTahunanModalLabel">Surat Cuti Tahunan</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body bg-warning text-white">
+            <div class="modal-body ct text-white">
                 <div class="p-2">
                     <form action="" id="cuti-tahunan">
                         @csrf
@@ -264,7 +267,7 @@
                 <h1 class="modal-title fs-5" id="cutiBesarModalLabel">Surat Cuti Besar</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body bg-danger text-white">
+            <div class="modal-body cb text-white">
                 <form action="" id="cuti-besar">
                     @csrf
                     <div class="form-group mb-2">

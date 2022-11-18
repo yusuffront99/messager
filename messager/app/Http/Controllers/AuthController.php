@@ -44,7 +44,7 @@ class AuthController extends Controller
             'jabatan', 
             'grade', 
             'bagian', 
-            // 'ttd_image'
+            'ttd_image' => 'mimes:png,jpg,jpeg|max:500',
         ]);
 
         $file = $request->file('ttd_image');

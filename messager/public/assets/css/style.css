@@ -38,7 +38,7 @@
 /* ===========HOME */
 
 .menu {
-    margin-top: 5%;
+    margin: 5%;
 }
 
 .title {
@@ -50,7 +50,7 @@
 }
 
 button.menu-button1, .menu-button2, .menu-button3, .menu-button4 {
-    padding: 45px 100px;
+    padding: 40px 100px;
     color: white;
     text-decoration: none;
     letter-spacing: 3px;
@@ -101,6 +101,10 @@ button.menu-button4:hover {
     background: #0ca568;
 }
 
+ul li {
+    list-style: none;
+}
+
 ul li .bx-list1 {
     padding: 10px;
     background: blue;
@@ -111,7 +115,35 @@ ul li .bx-list2 {
     background: green;
     width: 5%;
 }
+ul li .bx-list3 {
+    padding: 10px;
+    background: red;
+    width: 5%;
+}
 
+li.text-primary, li.text-success, li.text-danger {
+    font-size: 13px;
+}
+
+.info-ttd {
+    font-size: 10px;
+    color: rgb(255, 242, 0);
+}
+
+/* MODAL */
+.modal-body.ijin.text-white {
+    background: slateblue;
+}
+.modal-body.ct.text-white {
+    background: orange;
+}
+.modal-body.cb.text-white {
+    background: salmon;
+}
+.modal-body.profile {
+    color: white;
+    background: rgb(5, 153, 91);
+}
 /* CUTI TAHUNAN */
 
 /* CUTI TAHUNAN */
